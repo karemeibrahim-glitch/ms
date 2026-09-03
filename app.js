@@ -146,7 +146,7 @@ METHOD:PUBLISH
 BEGIN:VEVENT
 SUMMARY:Mohamed & Shahd's Wedding
 DESCRIPTION:Join Mohamed & Shahd in celebrating their wedding day. Ceremony at 6:00 PM followed by Reception & Dinner.
-LOCATION:The Royal Palace & Gardens, Kornish Al Nile, Maadi, Cairo, Egypt
+LOCATION:AL HADDADI, KAFR EL-SHEIKH, Egypt
 DTSTART:20261015T150000Z
 DTEND:20261015T220000Z
 STATUS:CONFIRMED

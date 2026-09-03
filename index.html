@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamed & Shahd — Wedding Invitation | October 15, 2026</title>
+  <meta name="description" content="Mohamed & Shahd cordially invite you to celebrate their wedding on October 15, 2026 in Cairo, Egypt." />
+  
+  <!-- Google Web Fonts for Minimalist Elegance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="minimal-theme">
+
+  <!-- Ambient Audio Player -->
+  <div class="audio-widget" id="audio-widget">
+    <button class="audio-btn" id="audio-toggle-btn" aria-label="Toggle Soft Piano Music">
+      <i data-lucide="music"></i>
+    </button>
+    <span class="audio-label" id="audio-label">Background Music</span>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="header" id="header">
+    <div class="container header-container">
+      <a href="#hero" class="nav-logo">
+        <span class="monogram">M &amp; S</span>
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#story" class="nav-link">Story</a>
+        <a href="#details" class="nav-link">Details</a>
+        <a href="#schedule" class="nav-link">Schedule</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#wishes" class="nav-link">Wishes</a>
+        <a href="#save-date" class="nav-link btn-rsvp-nav">Save Date</a>
+      </nav>
+
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-image-wrapper">
+      <img id="hero-img" src="wedding_hero_bg.png" alt="Mohamed & Shahd" class="hero-img" />
+    </div>
+
+    <div class="container hero-content">
+      <p class="hero-date-tag">OCTOBER 15, 2026 • CAIRO, EGYPT</p>
+
+      <h1 class="hero-title">
+        <span class="name-part">Mohamed</span>
+        <span class="ampersand">&amp;</span>
+        <span class="name-part">Shahd</span>
+      </h1>
+
+      <p class="hero-subtitle">Together with their families, invite you to celebrate their wedding day</p>
+
+      <!-- Minimalist Countdown -->
+      <div class="countdown-wrapper">
+        <div class="countdown-grid" id="countdown">
+          <div class="countdown-card">
+            <span class="number" id="cd-days">000</span>
+            <span class="label">Days</span>
+          </div>
+          <div class="countdown-card">
+            <span class="number" id="cd-hours">00</span>
+            <span class="label">Hours</span>
+          </div>
+          <div class="countdown-card">
+            <span class="number" id="cd-minutes">00</span>
+            <span class="label">Mins</span>
+          </div>
+          <div class="countdown-card">
+            <span class="number" id="cd-seconds">00</span>
+            <span class="label">Secs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Actions -->
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="calendar-btn">
+          <i data-lucide="calendar"></i> Add to Calendar
+        </button>
+      </div>
+
+      <div class="scroll-down-indicator">
+        <a href="#story" aria-label="Scroll Down">
+          <i data-lucide="arrow-down"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="section story-section" id="story">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">OUR STORY</span>
+        <h2 class="section-title">Mohamed &amp; Shahd</h2>
+        <div class="divider-minimal"></div>
+        <p class="section-subtitle">"Two souls with but a single thought, two hearts that beat as one."</p>
+      </div>
+
+      <div class="couple-grid">
+        <div class="couple-card">
+          <div class="couple-img-box">
+            <img src="couple_portrait.png" alt="Mohamed & Shahd" class="couple-img" id="groom-img" />
+          </div>
+          <div class="couple-info">
+            <h3 class="couple-name">The Groom &amp; Bride</h3>
+            <p class="couple-quote">"From our first meeting to this milestone, every moment together has been a blessing. We look forward to celebrating with you."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clean Milestones -->
+      <div class="timeline-container">
+        <div class="timeline-grid">
+          <div class="timeline-card">
+            <span class="timeline-date">SPRING 2023</span>
+            <h4>First Met</h4>
+            <p>A simple introduction that sparked an unbreakable connection.</p>
+          </div>
+
+          <div class="timeline-card">
+            <span class="timeline-date">AUTUMN 2024</span>
+            <h4>The Proposal</h4>
+            <p>Overlooking the Nile, Mohamed asked and Shahd said yes.</p>
+          </div>
+
+          <div class="timeline-card">
+            <span class="timeline-date">OCTOBER 15, 2026</span>
+            <h4>Wedding Day</h4>
+            <p>Exchanging vows in front of family and friends.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Details Section -->
+  <section class="section details-section" id="details">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">JOIN US</span>
+        <h2 class="section-title">Event Details</h2>
+        <div class="divider-minimal"></div>
+      </div>
+
+      <div class="details-grid">
+        <div class="details-card">
+          <i data-lucide="calendar" class="card-icon"></i>
+          <h3>Date &amp; Time</h3>
+          <p class="detail-highlight">Thursday, October 15, 2026</p>
+          <p class="detail-text">Ceremony starts at 6:00 PM</p>
+          <p class="detail-text">Reception &amp; Dinner at 7:30 PM</p>
+        </div>
+
+        <div class="details-card">
+          <i data-lucide="map-pin" class="card-icon"></i>
+          <h3>Location</h3>
+          <p class="detail-highlight">The Royal Palace &amp; Gardens</p>
+          <p class="detail-text">Kornish Al Nile, Maadi, Cairo</p>
+          <div class="card-footer-action">
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-text">Get Directions →</a>
+          </div>
+        </div>
+
+        <div class="details-card">
+          <i data-lucide="shirt" class="card-icon"></i>
+          <h3>Dress Code</h3>
+          <p class="detail-highlight">Formal Elegance</p>
+          <p class="detail-text">Gentlemen: Suits &amp; Tuxedos</p>
+          <p class="detail-text">Ladies: Evening Dresses</p>
+        </div>
+      </div>
+
+      <div class="venue-showcase">
+        <img src="wedding_venue.png" alt="Venue" class="venue-img" id="venue-img" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section class="section schedule-section" id="schedule">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">ITINERARY</span>
+        <h2 class="section-title">The Schedule</h2>
+        <div class="divider-minimal"></div>
+      </div>
+
+      <div class="schedule-list">
+        <div class="schedule-item">
+          <span class="time">05:30 PM</span>
+          <div class="info">
+            <h4>Guest Arrival</h4>
+            <p>Welcome drinks in the garden</p>
+          </div>
+        </div>
+
+        <div class="schedule-item">
+          <span class="time">06:30 PM</span>
+          <div class="info">
+            <h4>Marriage Ceremony</h4>
+            <p>Vow exchange &amp; Katb El Ketab</p>
+          </div>
+        </div>
+
+        <div class="schedule-item">
+          <span class="time">07:30 PM</span>
+          <div class="info">
+            <h4>Banquet Dinner</h4>
+            <p>Dinner served</p>
+          </div>
+        </div>
+
+        <div class="schedule-item">
+          <span class="time">09:00 PM</span>
+          <div class="info">
+            <h4>Celebration</h4>
+            <p>Cake cutting &amp; music</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery Section -->
+  <section class="section gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">GALLERY</span>
+        <h2 class="section-title">Moments</h2>
+        <div class="divider-minimal"></div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item" data-index="0">
+          <img src="ring_detail.png" alt="Rings" class="gallery-img" id="gal-img-1" />
+        </div>
+        <div class="gallery-item" data-index="1">
+          <img src="couple_portrait.png" alt="Couple" class="gallery-img" id="gal-img-2" />
+        </div>
+        <div class="gallery-item" data-index="2">
+          <img src="wedding_venue.png" alt="Venue" class="gallery-img" id="gal-img-3" />
+        </div>
+        <div class="gallery-item" data-index="3">
+          <img src="gallery_decor.png" alt="Decor" class="gallery-img" id="gal-img-4" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <div class="lightbox-content">
+      <img src="" alt="Preview" id="lightbox-img" />
+    </div>
+  </div>
+
+  <!-- Wishes Section (Presentation Only) -->
+  <section class="section wishes-section" id="wishes">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">BLESSINGS</span>
+        <h2 class="section-title">Warm Wishes</h2>
+        <div class="divider-minimal"></div>
+      </div>
+
+      <div class="wishes-display-grid">
+        <div class="wish-card">
+          <p class="wish-body">"Wishing Mohamed and Shahd a lifetime filled with love, laughter, and endless peace."</p>
+          <span class="wish-author">— Tarek &amp; Layla</span>
+        </div>
+
+        <div class="wish-card">
+          <p class="wish-body">"Alf Mabrouk! May Allah bless your union and grant you happiness forever."</p>
+          <span class="wish-author">— Eng. Mahmoud Al-Sayed</span>
+        </div>
+
+        <div class="wish-card">
+          <p class="wish-body">"So thrilled to celebrate with you both on October 15th! You make a wonderful couple."</p>
+          <span class="wish-author">— Nouran &amp; Karim</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Save the Date Card (Form-Free) -->
+  <section class="section save-date-section" id="save-date">
+    <div class="container text-center">
+      <div class="save-date-card">
+        <span class="section-tag">SAVE THE DATE</span>
+        <h2 class="section-title">15 . 10 . 2026</h2>
+        <p class="section-subtitle">We look forward to sharing our special day with you.</p>
+        <div class="save-date-actions">
+          <button class="btn btn-primary" id="save-date-cal-btn">
+            <i data-lucide="calendar"></i> Add to Calendar (.ics)
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container text-center">
+      <h3 class="footer-title">Mohamed &amp; Shahd</h3>
+      <p class="footer-date">15.10.2026 • Cairo, Egypt</p>
+      <p class="footer-bottom">&copy; 2026 Mohamed &amp; Shahd</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

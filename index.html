@@ -1,48 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mohamed & Shahd — Wedding Invitation | October 15, 2026</title>
-  <meta name="description" content="Mohamed & Shahd cordially invite you to celebrate their wedding on October 15, 2026 in Cairo, Egypt." />
+  <title>Mohamed & Shahd — Wedding Invitation | دعوة زفاف محمد وشهد</title>
+  <meta name="description" content="Mohamed & Shahd Wedding Invitation • دعوة زفاف محمد وشهد" />
   
-  <!-- Google Web Fonts for Minimalist Elegance -->
+  <!-- Google Web Fonts for Both English & Arabic -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="minimal-theme">
+<body class="minimal-theme rtl-theme">
 
-  <!-- Ambient Audio Player -->
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toast-notification">
+    <i data-lucide="instagram" class="toast-icon"></i>
+    <span id="toast-message">تم نسخ رابط الدعوة! افتح انستجرام للمشاركة 📸</span>
+  </div>
+
+  <!-- Ambient Audio Player (Arab Wedding Music) -->
   <div class="audio-widget" id="audio-widget">
-    <button class="audio-btn" id="audio-toggle-btn" aria-label="Toggle Soft Piano Music">
+    <button class="audio-btn" id="audio-toggle-btn" aria-label="Toggle Background Music">
       <i data-lucide="music"></i>
     </button>
-    <span class="audio-label" id="audio-label">Background Music</span>
+    <span class="audio-label" id="audio-label" data-i18n="audio_label">موسيقى الزفة والعود</span>
   </div>
 
   <!-- Navigation Header -->
   <header class="header" id="header">
     <div class="container header-container">
       <a href="#hero" class="nav-logo">
-        <span class="monogram">M &amp; S</span>
+        <span class="monogram" id="nav-monogram">م &amp; ش</span>
       </a>
       
       <nav class="nav-menu" id="nav-menu">
-        <a href="#story" class="nav-link">Story</a>
-        <a href="#details" class="nav-link">Details</a>
-        <a href="#schedule" class="nav-link">Schedule</a>
-        <a href="#gallery" class="nav-link">Gallery</a>
-        <a href="#wishes" class="nav-link">Wishes</a>
-        <a href="#save-date" class="nav-link btn-rsvp-nav">Save Date</a>
+        <a href="#story" class="nav-link" data-i18n="nav_story">قصتنا</a>
+        <a href="#details" class="nav-link" data-i18n="nav_details">تفاصيل الفرح</a>
+        <a href="#schedule" class="nav-link" data-i18n="nav_schedule">جدول المواعيد</a>
+        <a href="#gallery" class="nav-link" data-i18n="nav_gallery">معرض الصور</a>
+        <a href="#wishes" class="nav-link" data-i18n="nav_wishes">تهاني ومباركات</a>
+        <a href="#save-date" class="nav-link btn-rsvp-nav" data-i18n="nav_save_date">احفظ التاريخ</a>
+        
+        <!-- Language Toggle Button -->
+        <button class="lang-toggle-btn" id="lang-toggle-btn" aria-label="Toggle Language">
+          <i data-lucide="globe"></i>
+          <span id="lang-toggle-text">English</span>
+        </button>
       </nav>
 
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="القائمة">
         <i data-lucide="menu"></i>
       </button>
     </div>
@@ -56,34 +68,35 @@
     </div>
 
     <div class="container hero-content">
-      <p class="hero-date-tag">OCTOBER 15, 2026 • CAIRO, EGYPT</p>
+      <p class="hero-date-tag" data-i18n="hero_date_tag">١٣ – ١٥ أكتوبر ٢٠٢٦ • الحدادي، سيدي سالم، كفر الشيخ</p>
 
       <h1 class="hero-title">
-        <span class="name-part">Mohamed</span>
+        <span class="name-part" id="groom-name">محمد</span>
         <span class="ampersand">&amp;</span>
-        <span class="name-part">Shahd</span>
+        <span class="name-part" id="bride-name">شهد</span>
       </h1>
 
-      <p class="hero-subtitle">Together with their families, invite you to celebrate their wedding day</p>
+      <p class="hero-subtitle" data-i18n="hero_subtitle">يتشرفون بدعوة سيادتكم وحضوركم الكريم لمشاركتنا فرحتنا بأيام الحنة والزفاف المبارك</p>
 
       <!-- Minimalist Countdown -->
       <div class="countdown-wrapper">
+        <p class="countdown-subtag" data-i18n="countdown_subtag">العداد التنازلي لليلة الزفاف (عقب صلاة العشاء)</p>
         <div class="countdown-grid" id="countdown">
           <div class="countdown-card">
-            <span class="number" id="cd-days">000</span>
-            <span class="label">Days</span>
+            <span class="number" id="cd-days">٠٠</span>
+            <span class="label" data-i18n="label_days">يوم</span>
           </div>
           <div class="countdown-card">
-            <span class="number" id="cd-hours">00</span>
-            <span class="label">Hours</span>
+            <span class="number" id="cd-hours">٠٠</span>
+            <span class="label" data-i18n="label_hours">ساعة</span>
           </div>
           <div class="countdown-card">
-            <span class="number" id="cd-minutes">00</span>
-            <span class="label">Mins</span>
+            <span class="number" id="cd-minutes">٠٠</span>
+            <span class="label" data-i18n="label_mins">دقيقة</span>
           </div>
           <div class="countdown-card">
-            <span class="number" id="cd-seconds">00</span>
-            <span class="label">Secs</span>
+            <span class="number" id="cd-seconds">٠٠</span>
+            <span class="label" data-i18n="label_secs">ثانية</span>
           </div>
         </div>
       </div>
@@ -91,7 +104,10 @@
       <!-- Hero Actions -->
       <div class="hero-actions">
         <button class="btn btn-primary" id="calendar-btn">
-          <i data-lucide="calendar"></i> Add to Calendar
+          <i data-lucide="calendar"></i> <span data-i18n="btn_add_calendar">أضف إلى التقويم</span>
+        </button>
+        <button class="btn btn-secondary insta-share-btn" id="hero-insta-btn">
+          <i data-lucide="instagram"></i> <span data-i18n="btn_share_insta">مشاركة على الانستجرام</span>
         </button>
       </div>
 
@@ -107,10 +123,10 @@
   <section class="section story-section" id="story">
     <div class="container">
       <div class="section-header text-center">
-        <span class="section-tag">OUR STORY</span>
-        <h2 class="section-title">Mohamed &amp; Shahd</h2>
+        <span class="section-tag" data-i18n="story_tag">قصتنا</span>
+        <h2 class="section-title" id="story-title">محمد &amp; شهد</h2>
         <div class="divider-minimal"></div>
-        <p class="section-subtitle">"Two souls with but a single thought, two hearts that beat as one."</p>
+        <p class="section-subtitle" data-i18n="story_subtitle">"وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً"</p>
       </div>
 
       <div class="couple-grid">
@@ -119,8 +135,8 @@
             <img src="couple_portrait.png" alt="Mohamed & Shahd" class="couple-img" id="groom-img" />
           </div>
           <div class="couple-info">
-            <h3 class="couple-name">The Groom &amp; Bride</h3>
-            <p class="couple-quote">"From our first meeting to this milestone, every moment together has been a blessing. We look forward to celebrating with you."</p>
+            <h3 class="couple-name" data-i18n="couple_title">العريس والعروسة</h3>
+            <p class="couple-quote" data-i18n="couple_quote">"من أول لقاء ومحبتنا بتكبر كل يوم.. يسعدنا ويشرفنا حضوركم ومشاركتكم ليالي فرحتنا وحنتنا."</p>
           </div>
         </div>
       </div>
@@ -129,21 +145,21 @@
       <div class="timeline-container">
         <div class="timeline-grid">
           <div class="timeline-card">
-            <span class="timeline-date">SPRING 2023</span>
-            <h4>First Met</h4>
-            <p>A simple introduction that sparked an unbreakable connection.</p>
+            <span class="timeline-date" data-i18n="timeline_met_date">ربيع ٢٠٢٣</span>
+            <h4 data-i18n="timeline_met">اللقاء الأول</h4>
+            <p data-i18n="timeline_met_desc">بداية التعارف والود الشريف المبارك.</p>
           </div>
 
           <div class="timeline-card">
-            <span class="timeline-date">AUTUMN 2024</span>
-            <h4>The Proposal</h4>
-            <p>Overlooking the Nile, Mohamed asked and Shahd said yes.</p>
+            <span class="timeline-date" data-i18n="timeline_engaged_date">خريف ٢٠٢٤</span>
+            <h4 data-i18n="timeline_engaged">الخطوبة والشبكة</h4>
+            <p data-i18n="timeline_engaged_desc">وعد الزواج المبارك وسط فرحة الأهل والأحباب.</p>
           </div>
 
           <div class="timeline-card">
-            <span class="timeline-date">OCTOBER 15, 2026</span>
-            <h4>Wedding Day</h4>
-            <p>Exchanging vows in front of family and friends.</p>
+            <span class="timeline-date" data-i18n="timeline_wedding_date">١٣ – ١٥ أكتوبر ٢٠٢٦</span>
+            <h4 data-i18n="timeline_wedding">ليالي الفرح والزفاف</h4>
+            <p data-i18n="timeline_wedding_desc">ثلاث ليالٍ من البهجة والسرور بحضوركم الكريم.</p>
           </div>
         </div>
       </div>
@@ -154,36 +170,55 @@
   <section class="section details-section" id="details">
     <div class="container">
       <div class="section-header text-center">
-        <span class="section-tag">JOIN US</span>
-        <h2 class="section-title">Event Details</h2>
+        <span class="section-tag" data-i18n="details_tag">يشرفنا حضوركم</span>
+        <h2 class="section-title" data-i18n="details_title">أيام ومواعيد الفرح</h2>
         <div class="divider-minimal"></div>
       </div>
 
       <div class="details-grid">
+        <!-- Girls Hennah Card -->
         <div class="details-card">
-          <i data-lucide="calendar" class="card-icon"></i>
-          <h3>Date &amp; Time</h3>
-          <p class="detail-highlight">Thursday, October 15, 2026</p>
-          <p class="detail-text">Ceremony starts at 6:00 PM</p>
-          <p class="detail-text">Reception &amp; Dinner at 7:30 PM</p>
+          <i data-lucide="sparkles" class="card-icon"></i>
+          <h3 data-i18n="hennah_girls_title">حنة البنات</h3>
+          <p class="detail-highlight" data-i18n="hennah_girls_date">الثلاثاء ١٣ أكتوبر ٢٠٢٦</p>
+          <p class="detail-text" data-i18n="hennah_girls_desc">ليلة احتفالية خاصة بالسيدات والبنات</p>
         </div>
 
+        <!-- Men's Hennah & Dinner Card -->
         <div class="details-card">
-          <i data-lucide="map-pin" class="card-icon"></i>
-          <h3>Location</h3>
-          <p class="detail-highlight">The Royal Palace &amp; Gardens</p>
-          <p class="detail-text">Kornish Al Nile, Maadi, Cairo</p>
+          <i data-lucide="utensils" class="card-icon"></i>
+          <h3 data-i18n="hennah_mens_title">حنة الشباب ووليمة العشاء</h3>
+          <p class="detail-highlight" data-i18n="hennah_mens_date">الأربعاء ١٤ أكتوبر ٢٠٢٦</p>
+          <p class="detail-text" data-i18n="hennah_mens_desc">توزيع وليمة العشاء عقب صلاة المغرب مباشرة</p>
+        </div>
+
+        <!-- Main Wedding Card -->
+        <div class="details-card">
+          <i data-lucide="heart" class="card-icon"></i>
+          <h3 data-i18n="wedding_title">حفل الزفاف الكبير</h3>
+          <p class="detail-highlight" data-i18n="wedding_date">الخميس ١٥ أكتوبر ٢٠٢٦</p>
+          <p class="detail-text" data-i18n="wedding_desc">بدء مراسم الفرح والزفاف عقب صلاة العشاء مباشرة</p>
           <div class="card-footer-action">
-            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-text">Get Directions →</a>
+            <a href="https://www.google.com/maps/place/Al+Haddadi,+Al+Haddadi+WA+Izabeha,+Sidi+Salem,+Kafr+El-Sheikh+Governorate/@31.323829,30.7871263,19z" target="_blank" rel="noopener noreferrer" class="btn-text" data-i18n="map_btn">افتح موقع الفرح على الخريطة ←</a>
           </div>
         </div>
+      </div>
 
-        <div class="details-card">
-          <i data-lucide="shirt" class="card-icon"></i>
-          <h3>Dress Code</h3>
-          <p class="detail-highlight">Formal Elegance</p>
-          <p class="detail-text">Gentlemen: Suits &amp; Tuxedos</p>
-          <p class="detail-text">Ladies: Evening Dresses</p>
+      <!-- Embedded Google Maps Location -->
+      <div class="map-section text-center">
+        <span class="section-tag" data-i18n="map_tag">موقع الفرح</span>
+        <h3 class="map-title" data-i18n="map_location_name">الحدادي، سيدي سالم</h3>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d399.96174041154734!2d30.787126302395368!3d31.32382900381329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f6fbec786efe5d%3A0xa2bb0408d486efd6!2sAl%20Haddadi%2C%20Al%20Haddadi%20WA%20Izabeha%2C%20Sidi%20Salem%2C%20Kafr%20El-Sheikh%20Governorate!5e1!3m2!1sen!2seg!4v1788446549219!5m2!1sen!2seg" 
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="Location Map">
+          </iframe>
         </div>
       </div>
 
@@ -197,41 +232,41 @@
   <section class="section schedule-section" id="schedule">
     <div class="container">
       <div class="section-header text-center">
-        <span class="section-tag">ITINERARY</span>
-        <h2 class="section-title">The Schedule</h2>
+        <span class="section-tag" data-i18n="schedule_tag">جدول المواعيد</span>
+        <h2 class="section-title" data-i18n="schedule_title">برنامج ليالي الفرح</h2>
         <div class="divider-minimal"></div>
       </div>
 
       <div class="schedule-list">
         <div class="schedule-item">
-          <span class="time">05:30 PM</span>
+          <span class="time" data-i18n="sch_1_time">١٣ أكتوبر</span>
           <div class="info">
-            <h4>Guest Arrival</h4>
-            <p>Welcome drinks in the garden</p>
+            <h4 data-i18n="sch_1_title">ليلة حنة البنات</h4>
+            <p data-i18n="sch_1_desc">الثلاثاء • سهرة واحتفال الحنة الخاص بالسيدات والبنات</p>
           </div>
         </div>
 
         <div class="schedule-item">
-          <span class="time">06:30 PM</span>
+          <span class="time" data-i18n="sch_2_time">١٤ أكتوبر</span>
           <div class="info">
-            <h4>Marriage Ceremony</h4>
-            <p>Vow exchange &amp; Katb El Ketab</p>
+            <h4 data-i18n="sch_2_title">تقديم وليمة العشاء المبارك</h4>
+            <p data-i18n="sch_2_desc">الأربعاء • بدء تقديم طعام العشاء عقب صلاة المغرب مباشرة</p>
           </div>
         </div>
 
         <div class="schedule-item">
-          <span class="time">07:30 PM</span>
+          <span class="time" data-i18n="sch_3_time">١٤ أكتوبر</span>
           <div class="info">
-            <h4>Banquet Dinner</h4>
-            <p>Dinner served</p>
+            <h4 data-i18n="sch_3_title">سهرة حنة الشباب</h4>
+            <p data-i18n="sch_3_desc">مساء الأربعاء • سهرة الحنة البلدي للشباب والأحباب</p>
           </div>
         </div>
 
         <div class="schedule-item">
-          <span class="time">09:00 PM</span>
+          <span class="time" data-i18n="sch_4_time">١٥ أكتوبر</span>
           <div class="info">
-            <h4>Celebration</h4>
-            <p>Cake cutting &amp; music</p>
+            <h4 data-i18n="sch_4_title">حفل الزفاف والزفة الكبرى</h4>
+            <p data-i18n="sch_4_desc">الخميس • بدء مراسم الفرح والزفاف عقب صلاة العشاء مباشرة</p>
           </div>
         </div>
       </div>
@@ -242,8 +277,8 @@
   <section class="section gallery-section" id="gallery">
     <div class="container">
       <div class="section-header text-center">
-        <span class="section-tag">GALLERY</span>
-        <h2 class="section-title">Moments</h2>
+        <span class="section-tag" data-i18n="gallery_tag">معرض الصور</span>
+        <h2 class="section-title" data-i18n="gallery_title">أجمل الذكريات</h2>
         <div class="divider-minimal"></div>
       </div>
 
@@ -272,44 +307,47 @@
     </div>
   </div>
 
-  <!-- Wishes Section (Presentation Only) -->
+  <!-- Wishes Section -->
   <section class="section wishes-section" id="wishes">
     <div class="container">
       <div class="section-header text-center">
-        <span class="section-tag">BLESSINGS</span>
-        <h2 class="section-title">Warm Wishes</h2>
+        <span class="section-tag" data-i18n="wishes_tag">دعوات طيبة</span>
+        <h2 class="section-title" data-i18n="wishes_title">تهاني ومباركات الأهل والخلان</h2>
         <div class="divider-minimal"></div>
       </div>
 
       <div class="wishes-display-grid">
         <div class="wish-card">
-          <p class="wish-body">"Wishing Mohamed and Shahd a lifetime filled with love, laughter, and endless peace."</p>
-          <span class="wish-author">— Tarek &amp; Layla</span>
+          <p class="wish-body" data-i18n="wish_1_body">"بارَكَ اللَّهُ لَكُما وَبارَكَ عَلَيْكُما وَجَمَعَ بَيْنَكُما فِي خَيْرٍ.. الف مبروك لمحمد وشهد!"</p>
+          <span class="wish-author" data-i18n="wish_1_author">— طارق وليلى</span>
         </div>
 
         <div class="wish-card">
-          <p class="wish-body">"Alf Mabrouk! May Allah bless your union and grant you happiness forever."</p>
-          <span class="wish-author">— Eng. Mahmoud Al-Sayed</span>
+          <p class="wish-body" data-i18n="wish_2_body">"ألف مبروك لأجمل عرسان! ربنا يتمملكم على خير ويسعدكم ويرزقكم الحياة الهنيئة."</p>
+          <span class="wish-author" data-i18n="wish_2_author">— المهندس محمود السيد</span>
         </div>
 
         <div class="wish-card">
-          <p class="wish-body">"So thrilled to celebrate with you both on October 15th! You make a wonderful couple."</p>
-          <span class="wish-author">— Nouran &amp; Karim</span>
+          <p class="wish-body" data-i18n="wish_3_body">"فرحانين ليكم جداً ومنتظرين نكون معاكم في ليالي الفرح والسرور بالحدادي!"</p>
+          <span class="wish-author" data-i18n="wish_3_author">— نوران وكريم</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Save the Date Card (Form-Free) -->
+  <!-- Save the Date Card -->
   <section class="section save-date-section" id="save-date">
     <div class="container text-center">
       <div class="save-date-card">
-        <span class="section-tag">SAVE THE DATE</span>
-        <h2 class="section-title">15 . 10 . 2026</h2>
-        <p class="section-subtitle">We look forward to sharing our special day with you.</p>
+        <span class="section-tag" data-i18n="save_date_tag">احفظ التاريخ</span>
+        <h2 class="section-title" data-i18n="save_date_title">١٣ . ١٤ . ١٥ أكتوبر ٢٠٢٦</h2>
+        <p class="section-subtitle" data-i18n="save_date_sub">الحدادي، سيدي سالم، محافظة كفر الشيخ</p>
         <div class="save-date-actions">
           <button class="btn btn-primary" id="save-date-cal-btn">
-            <i data-lucide="calendar"></i> Add to Calendar (.ics)
+            <i data-lucide="calendar"></i> <span data-i18n="btn_add_calendar">أضف إلى التقويم (.ics)</span>
+          </button>
+          <button class="btn btn-secondary insta-share-btn" id="save-insta-btn">
+            <i data-lucide="instagram"></i> <span data-i18n="btn_share_insta">مشاركة على الانستجرام</span>
           </button>
         </div>
       </div>
@@ -319,9 +357,14 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container text-center">
-      <h3 class="footer-title">Mohamed &amp; Shahd</h3>
-      <p class="footer-date">15.10.2026 • Cairo, Egypt</p>
-      <p class="footer-bottom">&copy; 2026 Mohamed &amp; Shahd</p>
+      <h3 class="footer-title" id="footer-names">محمد &amp; شهد</h3>
+      <p class="footer-date" data-i18n="footer_date">١٣–١٥ أكتوبر ٢٠٢٦ • الحدادي، كفر الشيخ</p>
+      <div class="footer-share-wrap">
+        <button class="btn-text insta-share-btn" id="footer-insta-btn">
+          <i data-lucide="instagram"></i> <span data-i18n="footer_share">مشاركة الدعوة على الانستجرام</span>
+        </button>
+      </div>
+      <p class="footer-bottom" data-i18n="footer_copy">&copy; ٢٠٢٦ أفراح آل محمد وشهد</p>
     </div>
   </footer>
 

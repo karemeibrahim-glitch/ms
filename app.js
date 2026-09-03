@@ -76,13 +76,17 @@ const translations = {
     save_date_tag: "احفظ التاريخ",
     save_date_title: "١٣ . ١٤ . ١٥ أكتوبر ٢٠٢٦",
     save_date_sub: "الحدادي، سيدي سالم، محافظة كفر الشيخ",
-    footer_date: "١٣–١٥ أكتوبر ٢٠٢٦ • الحدادي، كفر الشيخ",
+    footer_date: "١٣ – ١٥ أكتوبر ٢٠٢٦ • الحدادي، سيدي سالم، كفر الشيخ",
     footer_share: "مشاركة الدعوة على الانستجرام",
     footer_copy: "© ٢٠٢٦ أفراح آل محمد وشهد",
     groom_name: "محمد",
     bride_name: "شهد",
     story_names: "محمد & شهد",
-    monogram: "م & ش"
+    monogram: "م & ش",
+    insta_modal_title: "صورة استوري الانستجرام",
+    insta_modal_sub: "قم بتحميل تصميم الاستوري ومشاركته على انستجرام 📸",
+    btn_download_story: "تحميل صورة الاستوري",
+    btn_open_insta: "افتح انستجرام"
   },
   en: {
     nav_story: "Story",
@@ -161,7 +165,11 @@ const translations = {
     groom_name: "Mohamed",
     bride_name: "Shahd",
     story_names: "Mohamed & Shahd",
-    monogram: "M & S"
+    monogram: "M & S",
+    insta_modal_title: "Instagram Story Card",
+    insta_modal_sub: "Download the Story card image to post on your Instagram Story 📸",
+    btn_download_story: "Download Story Image",
+    btn_open_insta: "Open Instagram"
   }
 };
 
@@ -187,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. Setup Add to Calendar (.ics Generator)
   initCalendarGenerator();
 
-  // 7. Setup Instagram Share Buttons
+  // 7. Setup Instagram Story Modal & Sharing Feature
   initInstagramShare();
 
   // 8. Setup Traditional Arab Wedding Music Synthesizer (Oud & Zaffa)
@@ -412,10 +420,13 @@ END:VCALENDAR`;
 }
 
 /* --------------------------------------------------------------------------
-   Instagram Sharing Feature (Native Mobile Web Share + Desktop Fallback)
+   Instagram Story Modal & Sharing Feature
    -------------------------------------------------------------------------- */
 function initInstagramShare() {
   const shareBtns = document.querySelectorAll('.insta-share-btn');
+  const modal = document.getElementById('insta-modal');
+  const closeBtn = document.getElementById('insta-modal-close');
+  const openInstaBtn = document.getElementById('open-insta-app-btn');
   const toast = document.getElementById('toast-notification');
   const toastMsg = document.getElementById('toast-message');
 
@@ -428,29 +439,51 @@ function initInstagramShare() {
     }, 3500);
   }
 
+  function openInstaStoryModal() {
+    if (modal) {
+      modal.classList.add('active');
+    }
+  }
+
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('active');
+    });
+  }
+
+  if (openInstaBtn) {
+    openInstaBtn.addEventListener('click', () => {
+      showToast(currentLang === 'ar' ? "جاري فتح تطبيق انستجرام..." : "Opening Instagram app...");
+      setTimeout(() => {
+        window.open("https://www.instagram.com", "_blank");
+      }, 500);
+    });
+  }
+
   shareBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const isAr = currentLang === 'ar';
-      const shareData = {
-        title: isAr ? "دعوة حفل زفاف محمد وشهد" : "Mohamed & Shahd's Hennah & Wedding Invitation",
-        text: isAr 
-          ? "يتشرفون بدعوة سيادتكم لحضور حفل الزفاف وليالي الحنة والعشاء! 💍✨\n١٣ أكتوبر: حنة البنات\n١٤ أكتوبر: وليمة العشاء (بعد المغرب) وحنة الشباب\n١٥ أكتوبر: حفل الزفاف (بعد العشاء)\nالمكان: الحدادي، سيدي سالم، كفر الشيخ"
-          : "You are invited to Mohamed & Shahd's Hennah & Wedding! 💍✨\nOct 13: Girls' Hennah\nOct 14: Men's Hennah & Dinner (After Maghreb)\nOct 15: Wedding Ceremony (After Eshaa)\nLocation: Al Haddadi, Sidi Salem, Kafr El-Sheikh",
-        url: window.location.href
-      };
-
-      if (navigator.share) {
-        navigator.share(shareData).catch(() => {});
+      
+      // Try Web Share API with image file if supported on mobile
+      if (navigator.canShare && navigator.canShare({ files: [new File([], '')] })) {
+        fetch('insta_story_card.png')
+          .then(res => res.blob())
+          .then(blob => {
+            const file = new File([blob], 'Shahd_and_Mohamed_Wedding_Story.png', { type: 'image/png' });
+            navigator.share({
+              title: isAr ? "دعوة حفل زفاف شهد ومحمد" : "Shahd & Mohamed Wedding Invitation",
+              text: isAr ? "دعوة حفل زفاف شهد ومحمد 💍✨" : "Shahd & Mohamed Wedding Invitation 💍✨",
+              files: [file]
+            }).catch(() => {
+              openInstaStoryModal();
+            });
+          })
+          .catch(() => {
+            openInstaStoryModal();
+          });
       } else {
-        const copyText = `${shareData.title}\n${shareData.text}\nLink: ${shareData.url}`;
-        navigator.clipboard.writeText(copyText).then(() => {
-          showToast(isAr ? "تم نسخ تفاصيل الدعوة والرابط! جاري فتح انستجرام..." : "Invitation text & link copied! Opening Instagram...");
-          setTimeout(() => {
-            window.open("https://www.instagram.com", "_blank");
-          }, 1200);
-        }).catch(() => {
-          window.open("https://www.instagram.com", "_blank");
-        });
+        openInstaStoryModal();
       }
     });
   });
